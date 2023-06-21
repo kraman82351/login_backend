@@ -3,7 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import connect from './database/conn.js';
 import router from './router/route.js';
-
+import {config} from 'dotenv'
 const app = express();
 
 /** middlewares */
@@ -13,7 +13,7 @@ app.use(morgan('tiny'));
 app.disable('x-powered-by'); // less hackers know about our stack
 
 
-const port = 8080;
+const port = process.env.PORT||8080;
 
 /** HTTP GET Request */
 app.get('/', (req, res) => {
