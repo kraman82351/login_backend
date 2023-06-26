@@ -5,6 +5,7 @@ import connect from './database/conn.js';
 import router from './router/route.js';
 import {config} from 'dotenv'
 const app = express();
+config()
 
 /** middlewares */
 app.use(express.json());
@@ -34,6 +35,7 @@ connect().then(() => {
         console.log('Cannot connect to the server')
     }
 }).catch(error => {
+    console.log(error)
     console.log("Invalid database connection...!");
 })
 
